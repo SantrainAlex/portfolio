@@ -146,7 +146,7 @@ et technologies.
 - [X] T039 Run `npm run build` et vérifier la taille du bundle (JS < 200 Ko gzippé) — corriger les imports inutiles
 - [X] T040 Valider le contenu final contre `CV.pdf` : relire chaque donnée affichée (noms de postes, dates, technologies, diplômes)
 - [X] T041 Valider la bio "À propos" avec Alexis (remplacer `TODO(CONTENT)` dans `src/components/sections/About.tsx`)
-- [ ] T042 [P] Remplacer `GA_MEASUREMENT_ID` dans `index.html` par le vrai identifiant GA4 fourni par Alexis
+- [X] T042 [P] Remplacer `GA_MEASUREMENT_ID` dans `index.html` par le vrai identifiant GA4 fourni par Alexis
 - [X] T043 [P] Vérifier les meta SEO dans `index.html` : title, description, Open Graph — tout en français
 
 ---
