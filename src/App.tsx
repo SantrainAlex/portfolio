@@ -1,5 +1,6 @@
 import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
+import { CookieBanner } from './components/ui/CookieBanner'
 import { Hero } from './components/sections/Hero'
 import { About } from './components/sections/About'
 import { Skills } from './components/sections/Skills'
@@ -24,6 +25,7 @@ export function App() {
         <Contact />
       </main>
       <Footer />
+      <CookieBanner />
     </>
   )
 }

@@ -35,11 +35,18 @@
     <!-- Preload critical font -->
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin />
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LBV6SNQ213"></script>
+    <!-- Google Analytics 4 — Consent Mode v2 (analytics bloqué par défaut) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        wait_for_update: 500
+      });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LBV6SNQ213"></script>
+    <script>
       gtag('js', new Date());
       gtag('config', 'G-LBV6SNQ213');
     </script>
