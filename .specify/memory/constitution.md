@@ -1,50 +1,140 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT
+==================
+Version change: (none) → 1.0.0 (initial constitution — all placeholders replaced)
+Modified principles: N/A (first-time fill)
+Added sections:
+  - Core Principles (5 principles)
+  - Tech Stack & Constraints
+  - Development Workflow
+  - Governance
+Templates requiring updates:
+  ✅ .specify/templates/plan-template.md — Constitution Check gates align with principles
+  ✅ .specify/templates/spec-template.md — Scope & requirements align with project context
+  ✅ .specify/templates/tasks-template.md — Task categories reflect project phases
+Deferred TODOs:
+  - RATIFICATION_DATE set to today (2026-03-11); no prior adoption date exists
+  - FC_ASN_0325.docx (competency file) could not be parsed; content derived from CV.pdf
+-->
+
+# Portfolio Alexis Santrain — Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Recruiter-First Communication (NON-NEGOTIABLE)
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Every section, layout decision, and piece of copy MUST be evaluated by asking:
+"Does this help a recruiter understand Alexis's role, stack, and value within 10 seconds?"
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+- The Hero section MUST display name, title ("Développeur Full Stack"), primary tech categories,
+  and a clear call-to-action above the fold on all viewports.
+- Contact details (email, phone, LinkedIn) MUST be reachable from any section via a persistent
+  nav or sticky contact bar.
+- No decorative element may obscure or delay the communication of professional identity.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: The sole audience is recruiters. Anything that slows or confuses that audience
+directly undermines the site's purpose.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### II. Content Authenticity
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+All displayed content — names, dates, job titles, technologies, descriptions — MUST originate
+from the provided source documents (CV.pdf, FC_ASN_0325.docx) or be explicitly supplied by
+Alexis. Invented, inferred, or placeholder text MUST NOT appear in any production build.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- Reference documents: `CV.pdf` and `FC_ASN_0325.docx` in the repository root.
+- If content is ambiguous or absent in source documents, mark with `TODO(CONTENT)` and flag for
+  Alexis's review before shipping.
+- The downloadable PDF CV MUST be the original `CV.pdf` file, not a regenerated version.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale**: A recruiter who cross-checks the site against a submitted CV must find exact
+consistency. Discrepancies destroy trust.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### III. Design Consistency (Blue/Grey — Corporate Modern)
+
+The visual language MUST remain sober, professional, and consistent throughout:
+
+- **Palette**: Primary blue (`#1E3A5F` or equivalent), neutral greys, white backgrounds in light
+  mode; deep navy/charcoal in dark mode. No warm tones, no playful colors.
+- **Dark mode**: MUST be supported via CSS `prefers-color-scheme` and a manual toggle. All text
+  contrast ratios MUST meet WCAG AA (4.5:1 minimum) in both modes.
+- **Typography**: Clean sans-serif (e.g., Inter, Roboto, or system-ui). No display fonts.
+- **Responsive**: Layout MUST be tested and usable at 320 px, 768 px, and 1280 px breakpoints.
+- Design tokens (colors, spacing, typography) MUST be defined in a single source of truth
+  (CSS variables or a theme config file) and never hardcoded in component styles.
+
+**Rationale**: Inconsistent design signals a lack of attention to detail — the opposite of what
+a developer's portfolio should convey.
+
+### IV. Accessibility & SEO (FR)
+
+- Language: the HTML `lang` attribute MUST be set to `fr`. All user-facing copy MUST be in French.
+- SEO: Each page MUST have a unique `<title>` and `<meta name="description">` in French.
+  Semantic HTML elements (`<header>`, `<main>`, `<section>`, `<footer>`, `<nav>`) MUST be used
+  throughout.
+- Images MUST have descriptive `alt` attributes in French.
+- All interactive elements (links, buttons) MUST be keyboard-navigable and have visible focus
+  indicators.
+- Google Analytics MUST be integrated via a `<script>` tag or equivalent, with a valid
+  measurement ID provided by Alexis before deployment.
+
+**Rationale**: Recruiters often share links; good SEO ensures discoverability. Accessibility is
+a professional baseline for any developer's site.
+
+### V. Simplicity & Performance
+
+- The site is a **static frontend** — no backend, no database, no authentication.
+- Framework choice MUST favor minimal bundle size and fast initial load. React (Vite) or
+  plain HTML/CSS/JS are preferred. No SSR framework is required unless a clear need emerges.
+- Third-party dependencies MUST be justified; each addition increases maintenance burden.
+- Lighthouse performance score on mobile MUST reach ≥ 85 before the site is considered
+  production-ready.
+- No lazy-loaded section should block the critical rendering path.
+
+**Rationale**: A slow portfolio reflects poorly on the developer. Simplicity also means
+the site remains maintainable by one person without complex tooling.
+
+## Tech Stack & Constraints
+
+**Frontend**: React (Vite) + TypeScript, or plain HTML/CSS/JS — decided at plan phase.
+**Styling**: CSS Modules, Tailwind, or plain CSS with custom properties — no CSS-in-JS.
+**Hosting**: Static hosting (Vercel, Netlify, or GitHub Pages).
+**Assets**: `CV.pdf` served as a static asset for direct download.
+**Analytics**: Google Analytics 4 (GA4) — measurement ID to be provided by Alexis.
+**No backend**: All contact actions use `mailto:` and `tel:` links; no form submission endpoint.
+**Sections (mandatory)**:
+  1. Hero — name, title, main techs, photo, CTA
+  2. À propos — short bio
+  3. Compétences — categorized: Frontend / Backend / Outils & Méthodo
+  4. Expériences — reverse chronological timeline (Tildeo 2022–2026)
+  5. Formation — Foreach Academy RNCP 5 / 6 / 7
+  6. Projet — BtoC multiplatform app for social landlords (bailleurs sociaux)
+  7. Contact — email, phone, LinkedIn, CV download
+
+## Development Workflow
+
+- All work for this project MUST be tracked via the speckit workflow
+  (spec → plan → tasks → implement).
+- Each feature spec MUST reference this constitution in its Constitution Check section.
+- Code MUST be committed in logical, descriptive increments. Commit messages MUST follow
+  Conventional Commits (`feat:`, `fix:`, `style:`, `docs:`, `chore:`).
+- Before marking any task complete, verify it does not violate Principles I–V above.
+- Deployment to production MUST only occur after a manual visual review at mobile (375 px)
+  and desktop (1440 px) widths, in both light and dark modes.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all informal decisions made during development. Any deviation from
+the principles above MUST be documented as a Complexity Tracking entry in the relevant plan.md,
+with explicit justification.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Amendment procedure**:
+1. Identify the principle or section to change.
+2. Increment the version (MAJOR for principle removal/redefinition, MINOR for new section,
+   PATCH for wording/clarification).
+3. Update `LAST_AMENDED_DATE` to the date of the change.
+4. Propagate changes to dependent templates as outlined in the Sync Impact Report format.
+
+**Compliance review**: Every speckit plan generation MUST include a Constitution Check section
+verifying alignment with Principles I–V.
+
+**Version**: 1.0.0 | **Ratified**: 2026-03-11 | **Last Amended**: 2026-03-11

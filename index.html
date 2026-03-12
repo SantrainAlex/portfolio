@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>Alexis Santrain — Développeur Full Stack React / PHP / Symfony</title>
+    <meta
+      name="description"
+      content="Portfolio d'Alexis Santrain — Développeur Full Stack spécialisé React, PHP et Symfony. Basé dans le Nord de la France. Disponible pour de nouvelles opportunités."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Alexis Santrain" />
+    <meta name="keywords" content="développeur full stack, React, React Native, PHP, Symfony, TypeScript, API Platform, PostgreSQL, Nord, Hauts-de-France" />
+
+    <!-- Open Graph (partage LinkedIn / réseaux) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alexis Santrain — Développeur Full Stack" />
+    <meta
+      property="og:description"
+      content="Portfolio d'Alexis Santrain, Développeur Full Stack React / PHP / Symfony. Découvrez mon parcours, mes compétences et mes réalisations."
+    />
+    <meta property="og:locale" content="fr_FR" />
+    <!-- og:url et og:image à compléter après déploiement avec l'URL définitive -->
+    <!-- <meta property="og:url" content="https://VOTRE-DOMAINE.com" /> -->
+    <meta property="og:image" content="/photo.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="/photo.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- Preload critical font -->
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin-wght-normal.woff2" crossorigin />
+
+    <!-- Google Analytics 4 — remplacer GA_MEASUREMENT_ID par le vrai identifiant G-XXXXXXXXXX -->
+    <!-- TODO(DEPLOY): activer avant la mise en ligne -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+
+    <!-- Thème initial (éviter le flash en dark mode) -->
+    <script>
+      (function () {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
