@@ -2,26 +2,20 @@ import { useTheme } from '../../hooks/useTheme'
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
+  const isDark = theme === 'dark'
 
   return (
     <button
       onClick={toggleTheme}
-      aria-label={theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre'}
-      className="p-2 rounded-md transition-colors hover:bg-[var(--color-primary-light)] text-[var(--color-text)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
-      title={theme === 'dark' ? 'Mode clair' : 'Mode sombre'}
+      aria-label={isDark ? 'Passer en mode clair' : 'Passer en mode sombre'}
+      title={isDark ? 'Mode clair' : 'Mode sombre'}
+      className="relative w-11 h-6 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-secondary)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
     >
-      {theme === 'dark' ? (
-        /* Soleil */
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-        </svg>
-      ) : (
-        /* Lune */
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      )}
+      <span
+        className="absolute top-[2px] w-[18px] h-[18px] rounded-full bg-[var(--color-primary)] transition-[left] duration-200 ease-in-out"
+        style={{ left: isDark ? '22px' : '2px' }}
+        aria-hidden="true"
+      />
     </button>
   )
 }

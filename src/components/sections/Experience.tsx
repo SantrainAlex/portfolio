@@ -3,12 +3,12 @@ import { TimelineItem } from '../ui/TimelineItem'
 
 export function Experience() {
   return (
-    <section id="experience" className="py-12 bg-[var(--color-bg-secondary)]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-title">Expériences professionnelles</h2>
-        <p className="section-subtitle">Mon parcours chez Tildeo depuis 2022</p>
+    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-bg-secondary)]">
+      <div className="max-w-6xl mx-auto">
+        <p className="section-eyebrow">03 — Parcours</p>
+        <h2 className="section-title mb-10">Expérience</h2>
 
-        <div className="max-w-3xl">
+        <div>
           {experiences.map((exp, index) => (
             <TimelineItem
               key={exp.id}

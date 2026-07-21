@@ -14,9 +14,7 @@ export function App() {
     <>
       <Header />
       <main>
-        <section id="hero">
-          <Hero />
-        </section>
+        <Hero />
         <About />
         <Skills />
         <Experience />

@@ -37,6 +37,6 @@ coverage/
 download.pdf
 .playwright-mcp/
 
-# Fichiers personnels à la racine
-*.jpg
+# Fichiers à la racine (photos perso, exports Lighthouse)
+/*.jpg
 C:\\

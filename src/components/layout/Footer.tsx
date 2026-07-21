@@ -7,8 +7,8 @@ export function Footer() {
         <p className="text-sm text-[var(--color-text-muted)]">
           © {year} Alexis Santrain — Développeur Full Stack
         </p>
-        <p className="text-xs text-[var(--color-text-muted)] mt-1">
-          Conçu et développé avec React & Tailwind CSS
+        <p className="font-mono text-xs text-[var(--color-text-muted)] mt-1.5">
+          conçu &amp; développé avec React
         </p>
       </div>
     </footer>

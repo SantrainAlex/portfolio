@@ -5,74 +5,54 @@ export function Project() {
   if (!project) return null
 
   return (
-    <section id="project" className="py-12 bg-[var(--color-bg)]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-title">Projet phare</h2>
-        <p className="section-subtitle">Une réalisation concrète illustrant mes compétences</p>
+    <section id="project" className="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--color-bg-secondary)]">
+      <div className="max-w-6xl mx-auto">
+        <p className="section-eyebrow">05 — Projet</p>
+        <h2 className="section-title mb-10">Projet phare</h2>
 
-        <div className="max-w-3xl">
-          <div className="card">
-            {/* En-tête */}
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-6">
-              <div>
-                <h3 className="text-xl font-bold text-[var(--color-text)] mb-1">
-                  {project.title}
-                </h3>
-                <span className="text-sm text-[var(--color-text-muted)]">
-                  {project.period}
-                </span>
-              </div>
-              <span className="flex-shrink-0 text-xs font-semibold bg-[var(--color-primary-light)] text-[var(--color-primary)] px-3 py-1.5 rounded-full self-start">
-                Application Mobile & Web
-              </span>
-            </div>
-
-            {/* Contexte */}
-            <div className="mb-5">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
-                Contexte
-              </h4>
-              <p className="text-[var(--color-text)] text-sm leading-relaxed">
-                {project.context}
-              </p>
-            </div>
-
-            {/* Rôle */}
-            <div className="mb-5">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
-                Mon rôle
-              </h4>
-              <p className="text-[var(--color-text)] text-sm leading-relaxed">
-                {project.role}
-              </p>
-            </div>
-
-            {/* Description */}
-            <div className="mb-6">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
-                Description
-              </h4>
-              <p className="text-[var(--color-text)] text-sm leading-relaxed">
-                {project.description}
-              </p>
-            </div>
-
-            {/* Technologies */}
+        <div className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-2xl p-8">
+          <div className="flex flex-wrap justify-between items-start gap-3 mb-6">
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)] mb-3">
-                Technologies utilisées
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map(tech => (
-                  <span
-                    key={tech}
-                    className="text-sm bg-[var(--color-primary-light)] text-[var(--color-primary)] px-3 py-1 rounded-full font-medium border border-[var(--color-border)]"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              <h3 className="font-heading font-semibold text-[22px] text-[var(--color-text)] mb-1">
+                {project.title}
+              </h3>
+              <p className="font-mono text-xs text-[var(--color-text-muted)]">{project.period}</p>
             </div>
+            <span className="font-mono text-[11px] font-semibold bg-[var(--color-primary-light)] text-[var(--color-primary)] px-3 py-1.5 rounded-full flex-shrink-0">
+              Projet professionnel — Web &amp; Mobile
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-7">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
+                Contexte
+              </p>
+              <p className="text-sm leading-relaxed text-[var(--color-text)]">{project.context}</p>
+            </div>
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
+                Rôle
+              </p>
+              <p className="text-sm leading-relaxed text-[var(--color-text)]">{project.role}</p>
+            </div>
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-wider text-[var(--color-text-muted)] mb-2">
+                Description
+              </p>
+              <p className="text-sm leading-relaxed text-[var(--color-text)]">{project.description}</p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map(tech => (
+              <span
+                key={tech}
+                className="font-mono text-xs bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-[var(--color-text)] px-3 py-1.5 rounded-lg"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
       </div>
